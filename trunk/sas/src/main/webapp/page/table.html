@@ -3,56 +3,100 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="../css/css.css" rel="stylesheet" type="text/css" />
-        <script src="../amcharts/amcharts.js" type="text/javascript"></script> 
-        <script src="../scripts/simpleColumn.js" type="text/javascript"></script> 
-        <title>测试报表</title>
+		<script src="../amcharts/amcharts.js" type="text/javascript"></script>
+		<script src="../scripts/simpleColumn.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			//str  不对比，前一天，上周同期，上月同期
+			function tagsLine(selfObj, str) {
+				// 操作标签
+				var tag = document.getElementById("twoo").getElementsByTagName("li");
+				var taglength = tag.length;
+				for (i = 0; i < taglength; i++) {
+					tag[i].className = "";
+				}
+				selfObj.parentNode.className = "hover";
+				alert(str);
+			}
+		
+			//选择0：今日 1：昨日，调整样式
+			function tagLine(showContent, selfObj, linekey) {
+				// 操作标签
+				var tag = document.getElementById("twooLine")
+						.getElementsByTagName("li");
+				var taglength = tag.length;
+				for (i = 0; i < taglength; i++) {
+					tag[i].className = "";
+				}
+				selfObj.parentNode.className = "hover";
+				// 操作内容
+				for (i = 0; j = document.getElementById("two_" + i); i++) {
+					j.style.display = "none";
+				}
+				document.getElementById(showContent).style.display = "block";
+				vlistKey = linekey;
+				askServlet('0107', '', '', vlistKey, getNewUserLine);
+			}
+		
+			//falg  1：新增用户 2：启动次数
+			function tagsChType(selfObj, falg) {
+				// 操作标签
+				var tag = document.getElementById("twooChType").getElementsByTagName(
+						"li");
+				var taglength = tag.length;
+				for (i = 0; i < taglength; i++) {
+					tag[i].className = "";
+				}
+				selfObj.parentNode.className = "hover";
+				selectChType(falg);
+			}
+		</script>
+		<title>测试报表</title>
 	</head>
 	<body>
-	 	<div class="boxmax">
-        	<div class="title">
-            	<strong class="l"><a href="www.baidu.com" id="timefx">时段分析...</a></strong>
-                <span class="r">
-                    <div class="bottunDiv l">
-                    <div class="l selectlble">对比：</div>
-                    <ul class="l" id="twoo">
-                        <li class="hover"><a href="javascript:void(0);" id="tab1" class="bottun3" onClick="tagsLine(this,'不对比')">不对比</a></li>
-                        <li><a href="javascript:void(0);" id="tab2" class="bottun" onClick="tagsLine(this,'前一天')">前一天</a></li>
-                        <li><a href="javascript:void(0);" id="tab3" class="bottun" onClick="tagsLine(this,'上周同期')">上周同期</a></li>
-                        <li><a href="javascript:void(0);" id="tab4" class="bottun2" onClick="tagsLine(this,'上月同期')"><font>上月同期</font></a></li>
-                    </ul>
-                    </div>
-                </span>
-        	</div>
-            <div class="textbox">
-            <div>
-                <ul class="bottunDiv l" id="twooLine">
-                	<li class="hover">
-                		<a href="javascript:void(0);" id="tab5" class="bottun3" onClick="tagLine('two_0',this,0)">今日</a>
-                	</li>
-                    <li>
-                    	<a href="javascript:void(0);" class="bottun2" id="tab6" onClick="tagLine('two_1',this,1)"><font>昨日</font></a>
-                    </li>
-                </ul>
-                <ul class="bottunDiv l" id="twooChType">
-                	<li class="hover">
-                		<a href="javascript:void(0);" id="tab7" class="bottun3" onclick="tagsChType(this,1);">新增用户</a>
-                	</li>
-                    <li>
-                    	<a href="javascript:void(0);" class="bottun2" id="tab8" onclick="tagsChType(this,2);"><font>启动次数</font></a>
-                    </li>
-                </ul>
-                <div class="ipcright_top r">
-                
-                </div>
-                <div class="clear"></div></div>
-               
-                
-                 <div class="table" id="charts">
-                	<div id="chartdiv" style="width: 100%; height: 300px; margin: 0 auto;">
-                	</div>
-                </div>
-                </div>
-            </div>
+		<div class="boxmax">
+			<div class="title">
+				<strong class="l"><a href="www.baidu.com" id="timefx">时段分析...</a></strong>
+				<span class="r">
+					<div class="bottunDiv l">
+						<div class="l selectlble">对比：</div>
+						<ul class="l" id="twoo">
+							<li class="hover"><a href="javascript:void(0);" id="tab1"
+								class="bottun3" onClick="tagsLine(this,'不对比')">不对比</a></li>
+							<li><a href="javascript:void(0);" id="tab2" class="bottun"
+								onClick="tagsLine(this,'前一天')">前一天</a></li>
+							<li><a href="javascript:void(0);" id="tab3" class="bottun"
+								onClick="tagsLine(this,'上周同期')">上周同期</a></li>
+							<li><a href="javascript:void(0);" id="tab4" class="bottun2"
+								onClick="tagsLine(this,'上月同期')"><font>上月同期</font></a></li>
+						</ul>
+					</div>
+				</span>
+			</div>
+			<div class="textbox">
+				<div>
+					<ul class="bottunDiv l" id="twooLine">
+						<li class="hover"><a href="javascript:void(0);" id="tab5"
+							class="bottun3" onClick="tagLine('two_0',this,0)">今日</a></li>
+						<li><a href="javascript:void(0);" class="bottun2" id="tab6"
+							onClick="tagLine('two_1',this,1)"><font>昨日</font></a></li>
+					</ul>
+					<ul class="bottunDiv l" id="twooChType">
+						<li class="hover"><a href="javascript:void(0);" id="tab7"
+							class="bottun3" onclick="tagsChType(this,1);">新增用户</a></li>
+						<li><a href="javascript:void(0);" class="bottun2" id="tab8"
+							onclick="tagsChType(this,2);"><font>启动次数</font></a></li>
+					</ul>
+					<div class="ipcright_top r"></div>
+					<div class="clear"></div>
+				</div>
+	
+	
+				<div class="table" id="charts">
+					<div id="chartdiv"
+						style="width: 100%; height: 300px; margin: 0 auto;"></div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
 
