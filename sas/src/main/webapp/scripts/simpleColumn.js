@@ -1,98 +1,126 @@
 var chart;
+var match,time,type="新增应用";
 
-            var chartData = [{
-                country: "01:00",
-                visits: 4025
-            }, {
-                country: "02:00",
-                visits: 2882
-            }, {
-                country: "03:00",
-                visits: 4809
-            }, {
-                country: "04:00",
-                visits: 3322
-            }, {
-                country: "05:00",
-                visits: 5122
-            }, {
-                country: "06:00",
-                visits: 3114
-            }, {
-                country: "07:00",
-                visits: 2984
-            }, {
-                country: "08:00",
-                visits: 5711
-            }, {
-                country: "09:00",
-                visits: 1665
-            }, {
-                country: "10:00",
-                visits: 3580
-            }, {
-                country: "11:00",
-                visits: 4443
-            }, {
-                country: "12:00",
-                visits: 2441
-            }, {
-                country: "13:00",
-                visits: 1395
-            }, {
-                country: "14:00",
-                visits: 3386
-            }, {
-                country: "15:00",
-                visits: 2384
-            }, {
-                country: "16:00",
-                visits: 3338
-            }, {
-                country: "17:00",
-                visits: 2984
-            }, {
-                country: "18:00",
-                visits: 5711
-            }, {
-                country: "19:00",
-                visits: 1665
-            }, {
-                country: "20:00",
-                visits: 3580
-            }, {
-                country: "21:00",
-                visits: 4443
-            }, {
-                country: "22:00",
-                visits: 2441
-            }, {
-                country: "23:00",
-                visits: 1395
-            }];
+AmCharts.ready(function () {
+	initChart(type);
+});
+
+function initChart(tag){
+	
+    $("#chartdiv").html("");
+	
+	// SERIAL CHART
+    chart = new AmCharts.AmSerialChart();
+    chart.dataProvider = chartData;
+    chart.categoryField = "country";
+    chart.startDuration = 1;
+	
+    // AXES
+    // category
+    var categoryAxis = chart.categoryAxis;
+    categoryAxis.gridPosition = "start";
+
+    // GRAPH
+    var graph = new AmCharts.AmGraph();
+    graph.valueField = "visits";
+    graph.balloonText = "[[category]]--"+tag+": [[value]]";
+    graph.type = "line";
+    graph.lineAlpha = 1;
+    graph.fillAlphas = 0.3;
+    graph.fillColors = "#0D2B54"
+	graph.bullet = "round";
+    graph.bulletSize = 5;
+    graph.lineThickness = 2;
+    chart.addGraph(graph);
+    
+    // CURSOR
+    var chartCursor = new AmCharts.ChartCursor();
+    chartCursor.cursorPosition = "mouse";
+    chartCursor.categoryBalloonDateFormat = "JJ:NN, DD MMMM";
+    chart.addChartCursor(chartCursor);
+    
+    chart.write("chartdiv");
+
+}
 
 
-            AmCharts.ready(function () {
-                // SERIAL CHART
-                chart = new AmCharts.AmSerialChart();
-                chart.dataProvider = chartData;
-                chart.categoryField = "country";
-                chart.startDuration = 1;
+function tagsLine(selfObj, str) {
+	match = str;
+	
+	changeCSS(selfObj,"twoo");
+	
+	matchLine("新增应用",str);
+}
 
-                // AXES
-                // category
-                var categoryAxis = chart.categoryAxis;
-                categoryAxis.gridPosition = "start";
+function  tagLine(showContent, selfObj, linekey) {
+	time = linekey;
+	changeCSS(selfObj,"twooLine");
+	
+	$("#chartdiv").html("");
+	initChart(type);
+}
 
-                // GRAPH
-                var graph = new AmCharts.AmGraph();
-                graph.valueField = "visits";
-                graph.balloonText = "[[category]]--新增用户: [[value]]";
-                graph.type = "column";
-                graph.lineAlpha = 0;
-                graph.fillAlphas = 0.8;
-                graph.fillColors = "#0D2B54"
-                chart.addGraph(graph);
+function tagsChType(selfObj, flag,linekey) {
+	type=flag;
+	
+	changeCSS(selfObj,"twooChType");
+	
+	$("#chartdiv").html("");
 
-                chart.write("chartdiv");
-            });
+	initChart(type);
+}
+
+/**
+ * tag:
+ */
+function matchLine(tag,str){
+	$("#chartdiv").html("");
+	
+	// SERIAL CHART
+    chart = new AmCharts.AmSerialChart();
+    chart.dataProvider = chartData;
+    chart.categoryField = "country";
+    chart.startDuration = 1;
+	
+    // AXES
+    // category
+    var categoryAxis = chart.categoryAxis;
+    categoryAxis.gridPosition = "start";
+
+    // GRAPH
+    var graph = new AmCharts.AmGraph();
+    graph.valueField = "visits";
+    graph.balloonText = "[[category]]--"+tag+": [[value]]";
+    graph.type = "line";
+    graph.lineAlpha = 1;
+    graph.fillAlphas = 0.3;
+    graph.fillColors = "#0D2B54"
+	graph.bullet = "round";
+    graph.bulletSize = 5;
+    graph.lineThickness = 2;
+    chart.addGraph(graph);
+    
+    // CURSOR
+    var chartCursor = new AmCharts.ChartCursor();
+    chartCursor.cursorPosition = "mouse";
+    chartCursor.categoryBalloonDateFormat = "JJ:NN, DD MMMM";
+    chart.addChartCursor(chartCursor);
+	
+    // GRAPH
+    var graph2 = new AmCharts.AmGraph();
+	graph2.type = "line";
+    graph2.title = str;
+    graph2.valueField = "average";
+    graph2.lineThickness = 2;
+    graph2.bullet = "round";
+    graph.bulletSize = 5;
+    graph2.balloonText = "[[category]]--"+str+": [[value]]";
+    graph2.lineAlpha = 1;
+    graph2.lineColor = "#d1cf2a";
+    graph2.fillAlphas = 0.3; 
+    graph2.lineThickness = 2;
+    chart.addGraph(graph2);
+    
+    
+    chart.write("chartdiv");
+}
