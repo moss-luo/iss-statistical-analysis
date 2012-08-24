@@ -29,3 +29,35 @@ var chartData = [{
     country: "Russia",
     visits: 580
 }];
+
+var chartData2 = [{
+    country: "China",
+    visits: 4025
+}, {
+    country: "USA",
+    visits: 3882
+}, {
+    country: "France",
+    visits: 3114
+}, {
+    country: "Japan",
+    visits: 2809
+}, {
+    country: "Germany",
+    visits: 2322
+}, {
+    country: "UK",
+    visits: 2122
+}, {
+    country: "India",
+    visits: 1984
+}, {
+    country: "Spain",
+    visits: 1711
+}, {
+    country: "Netherlands",
+    visits: 1665
+}, {
+    country: "Russia",
+    visits: 1580
+}];
