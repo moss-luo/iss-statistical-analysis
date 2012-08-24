@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE struts PUBLIC     
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"     
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+	
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.objectFactory.spring.autoWire" value="type" />
+	<constant name="struts.convention.action.mapAllMatches" value="true" />
+	<constant name="struts.convention.default.parent.package"
+		value="amchartsbyiss" />
+	<constant name="struts.convention.result.path" value="" />
+	<package name="amchartsbyiss" extends="json-default" abstract="true">
+		<result-types>                         
+<!-- 			<result-type name="freemarker" class="org.apache.struts2.views.freemarker.FreemarkerResult" /> -->
+			<result-type name="freemarker-result" class="com.isoftstone.sas.common.FreemarkerResult" />
+		</result-types>
+		<default-interceptor-ref name="defaultStack" />
+		<global-results>
+			<result name="error">/WEB-INF/error.html</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+		
+		<action name="test" class="com.isoftstone.sas.actions.freemarker.QueryAction">
+		    <result name="success" type="freemarker">freemarkertest.ftl</result>
+		</action>
+		
+	</package>
+	
+</struts> 
