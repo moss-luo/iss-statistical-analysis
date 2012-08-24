@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>应用概况</title>
+		<link href="../css/css.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../resources/jquery.min.js"></script>
+		<script type="text/javascript" src="../amcharts/amcharts.js"></script>
+		<script src="../resources/jquery.select-1.3.6.js"></script>
+		<script src="../resources/Tab.js"></script>
+		<script type="text/javascript" src="../resources/index.js"></script>
+		<script src="../scripts/myCommon.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../data/top10_user_area_data.js"></script>
+		<script type="text/javascript" src="../scripts/top10_user_area.js"></script>
+		<script type="text/javascript">
+			function selectTimeFlag(){
+				$('#1753').html('<div class="login"><img src="../images/loading.gif" height="25px"></img><br>正在加载统计数据...</div>');
+				timeflag=$("#date").val();
+				alert(timeflag);
+			}
+		</script>
+		
+	</head>
+	<body>
+		<div class="boxmax" style="width:50%; margin-left:5px" >
+			<div class="title2" >
+				<strong class="l"><a href="javascript:void(0);" onclick="setHrefInfo();">用户启动应用次数...</a></strong>
+				<!--<span class="r"><a href="javascript:void(0);" class="colse" onclick="closeID()"></a></span>-->
+	            
+				<span class="r">
+                    <div class="bottunDiv l">
+	                    <div class="l selectlble">展示图形：</div>
+	                    <ul class="l" id="twoo">
+	                        <li class="hover"><a href="javascript:void(0);" id="tab1" class="bottun3" onClick="changeType(this,'条形图')">条形图</a></li>
+	                        <li><a href="javascript:void(0);" id="tab2" class="bottun" onClick="changeType(this,'柱形图')">柱形图</a></li>
+							<li><a href="javascript:void(0);" id="tab4" class="bottun2" onClick="changeType(this,'饼形图')"><font>饼形图</font></a></li>
+	                    </ul>
+                    </div>
+                </span>
+				<div class="bottunDiv r" style="margin-top:8px">
+		            <select name="选择日期" id="date" title="选择日期" class="df" onchange="selectTimeFlag();">
+		                 <option value="0">今日</option>
+		                 <option value="1" selected="selected">昨日</option>
+		                 <option value="7">7日</option>
+		            </select>
+	            </div>
+			</div>
+			<div class="textbox" style="height:313px">
+				<div id="1753" style="height:312px">
+					<div id="chartdiv" style="width: 100%; height: 300px; margin: 0 auto;">
+	                </div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
