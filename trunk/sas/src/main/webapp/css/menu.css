@@ -17,5 +17,9 @@
 .menu li a#Channelclose span,.menu li a#SetUpclose span,.menu li a#Userclose span,.menu li a#ParticipateInclose span{
 	background:url(../images/more_icon.gif) no-repeat right center
 }
+.menuClick{
+	color:#6097de; 
+	font-weight:bold;
+}
 
 
