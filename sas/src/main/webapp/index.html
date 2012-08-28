@@ -1,5 +1,64 @@
-<html>
-<body>
-<h2>Hello World!</h2>
-</body>
-</html> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>统计分析系统</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="css/css.css" rel="stylesheet" type="text/css" />
+		<link href="css/menu.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="resources/jquery/jquery-1.5.2.min.js"></script>
+		<script type="text/javascript" src="scripts/menu.js"></script>
+    </head>
+    <body>
+        <div id="header">
+			<iframe id="head" name="head" frameborder="0" src="main/head.html" width="100%" height="100%"></iframe>
+        </div>
+        <div id="container">
+        	<div class="menuBox" >
+				<div class="menu l" style="margin-left:15px">
+			    	  <ul>
+						  <li style="border:none;"><a href="#" id="Summarize" class="Summarize" onclick="switchMenu(this,'page/recently_overview.html')"><span><font id="clickMenu">应用概况</font></span></a></li>
+				          <li><a href="#this" id="User" onclick="menu(this,'User','Userclose')" class="more_icon User"><span><font>用户和使用</font></span></a>
+				                <ol id="Userol">
+									<li><a href="#" id="ftrendstat" class="ftrendstat" onclick="switchMenu(this,'page/panel.html')">新增和启动</a></li>
+									<li class="news"><a href="#" id="ActiveAnalysis" class="ActiveAnalysis">活跃分析</a></li>
+									<li class="news"><a href="#" id="User_Time" class="User_Time">时段分析</a></li>
+				                    <li class="news"><a href="#" id="User_Area"  class="User_Area">地区分布</a></li>
+				                    <li><a href="#" id="VersionInfo" class="VersionInfo">版本分布</a></li>
+				                    <li><a href="#" id="User_DeviceType" class="User_DeviceType">设备机型</a></li>
+				                    <li><a href="#" id="IspinInfo" class="IspinInfo">运营商和网络</a></li>
+				                    <li><a href="#" id="User_Error" class="User_Error">错误报告</a></li>
+				                </ol>	
+				          </li>
+							<li><a href="#this" onclick="menu(this,'Channel','Channelclose')" id="Channel" class="more_icon Channel"><span><font>渠道统计</font></span></a>
+								<ol id="Channelol">
+				                	<li><a href="#" id="PartnerData" class="PartnerData">渠道数据</a></li>
+				                </ol>
+				            </li>
+				          <li><a href="#this" onclick="menu(this,'ParticipateIn','ParticipateInclose')" id="ParticipateIn" class="more_icon ParticipateIn" ><span><font>参与和留存</font></span></a>
+				          		<ol id="ParticipateInol" >
+									<li class="news"><a href="#" id="ParticipateIn_Retain" class="ParticipateIn_Retain">用户留存</a></li>
+				                    <li><a href="#" id="FirstDayKeepInfo" class="FirstDayKeepInfo">留存率</a></li>
+				                    <li><a href="#" id="UserRetainInfo" class="UserRetainInfo">用户回访</a></li>
+				                    <li><a href="#" id="StartTimeInfo" class="StartTimeInfo">日启动次数</a></li>
+				                    <li class="news"><a href="#" id="Use_Interval" class="Use_Interval">使用间隔</a></li>
+				                    <li><a href="#" id="UseTimeInfo" class="UseTimeInfo">使用时长</a></li>
+				                    <li><a href="#" id="PageInfo" class="PageInfo">页面访问</a></li>
+				                </ol>
+				          </li>
+				          <li class="news1"><a href="#" id="CustomEvent" class="CustomEvent"><span><font>事件和转化</font></span></a></li>
+						  <li><a href="#" id="FeedbackBy" class="FeedbackBy"><span><font>用户反馈</font></span></a></li>
+					  </ul>
+		    	</div>
+            </div>
+        	<div class="mainBox">
+               <iframe id="context" name="context" frameborder="0" src="page/recently_overview.html" width="100%" height="100%"></iframe>
+            </div>
+            
+        </div>
+        <div id="footer">
+            <iframe id="copyright" name="copyright" frameborder="0" src="main/copyright.html" width="100%" height="100%"></iframe>
+        </div>
+    </body>
+</html>
