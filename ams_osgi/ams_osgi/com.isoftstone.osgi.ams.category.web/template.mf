@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ams Demo Category Management WEB Module
+Bundle-SymbolicName: com.isoftstone.osgi.ams.category.web
+Bundle-Version: 1.0.0.SNAPSHOT
+Import-Template: org.springframework.*;version="[3.0.5,4)",
+ com.isoftstone.agiledev.*;version="1.0.0.SNAPSHOT"
+Import-Package: org.springframework.context.config;version="[3.0.5,4)",
+ org.springframework.web.servlet.config;version="[3.0.5,4)",
+ META-INF.agiledev;version="1.0.0.SNAPSHOT"
+Excluded-Imports: com.isoftstone.osgi.ams.category.web
+Snap-Host: com.isoftstone.osgi.ams;version="1.0.0.SNAPSHOT"
+Snap-ContextPath: /category
