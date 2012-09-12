@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	    <title></title>
+	    <script src="../resources/jquery/jquery-1.5.2.min.js" type="text/javascript"></script> 
+		<script type="text/javascript">
+			 function findController(){
+	         	var name = $("#name").val();
+	         	 $.ajax({
+	              	url:'mvc/category/list',
+	              	data:{name:name},
+	              	success:function(data){
+	              		alert(data);
+	              	}
+	              });
+	         }
+		</script> 
+	</head>
+	<body style="background: white; font-size: 12px;"> 
+	 
+	  	<div>
+			姓名：<input type="text" id="name" />
+				 <input type="button" id="submitName" onclick="findController()" value="OK"/>
+		</div>
+	</body>
+</html>
