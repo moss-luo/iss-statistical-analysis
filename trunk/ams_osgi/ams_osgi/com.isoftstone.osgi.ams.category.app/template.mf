@@ -4,14 +4,15 @@ Bundle-Name: Ams Demo Category Module
 Bundle-SymbolicName: com.isoftstone.osgi.ams.category.app
 Bundle-Version: 1.0.0.SNAPSHOT
 Import-Template: org.springframework.*;version="[3.0.5,4)"
-Import-Package: javax.validation.constraints;version="1.0.0.GA",
- net.sf.cglib.core;version="[2.2.0,3)",
- net.sf.cglib.proxy;version="[2.2.0,3)",
- net.sf.cglib.reflect;version="[2.2.0,3)",
- org.aopalliance.aop;version="1.0.0",
+Import-Package: org.springframework.context.config;version="[3.0.5,4)",
  org.springframework.aop;version="[3.0.5,4)",
  org.springframework.aop.framework;version="[3.0.5,4)",
- org.springframework.context.config;version="[3.0.5,4)"
+ org.aopalliance.aop;version="1.0.0",
+ net.sf.cglib.proxy;version="[2.2.0,3)",
+ net.sf.cglib.core;version="[2.2.0,3)",
+ net.sf.cglib.reflect;version="[2.2.0,3)",
+ org.hibernate.validator.constraints;version="4.2.0.Final",
+ javax.validation.constraints;version="1.0.0.GA"
 Excluded-Exports: com.isoftstone.osgi.ams.category.app.internal.*
 Excluded-Imports: com.isoftstone.osgi.ams.category.app
 MyBatis-Mapper-Locations: /META-INF/mybatis/mappers;pattern=**/*Mapper.xml
