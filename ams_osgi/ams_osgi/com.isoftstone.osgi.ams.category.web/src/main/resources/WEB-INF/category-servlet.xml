@@ -43,5 +43,5 @@
 		</property>
 	</bean>
 		
-	<osgi:reference id="categoryManager" interface="com.isoftstone.osgi.ams.category.app.category.ICategoryManager" bean-name="categoryManager"/>
+	<osgi:reference id="categoryManager" interface="com.isoftstone.osgi.ams.category.app.category.ICategoryManager"/>
 </beans>
